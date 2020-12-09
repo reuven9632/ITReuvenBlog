@@ -9,9 +9,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainConrtoller {
 
     @GetMapping("/")
-    public String greeting(Model model) {
+    public String stringHome(Model model) {
         model.addAttribute("welcome", "Welcome to ITReuven Blog");
         model.addAttribute("title", "ITReuven Blog");
+        return "home";
+    }
+
+    @GetMapping("/about")
+    public String aboutHome(Model model) {
+        model.addAttribute("welcome", "Welcome to \"about\" ITReuven Blog");
+        model.addAttribute("title", "ITReuven about");
         return "home";
     }
 
