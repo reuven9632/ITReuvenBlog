@@ -12,14 +12,14 @@ public class MainConrtoller {
     public String stringHome(Model model) {
         model.addAttribute("welcome", "Welcome to ITReuven Blog");
         model.addAttribute("title", "ITReuven Blog");
-        return "home";
+        return "index";
     }
 
     @GetMapping("/about")
     public String aboutHome(Model model) {
         model.addAttribute("welcome", "Welcome to \"about\" ITReuven Blog");
         model.addAttribute("title", "ITReuven about");
-        return "home";
+        return "about";
     }
 
 }
