@@ -1,11 +1,11 @@
 package com.ITReuvenBlog.WebBlog.controllers;
 
-import models.Post;
+import com.ITReuvenBlog.WebBlog.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import repositoryes.PostRepository;
+import com.ITReuvenBlog.WebBlog.repositoryes.PostRepository;
 
 @Controller
 public class BlogController {

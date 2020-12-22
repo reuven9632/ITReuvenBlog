@@ -1,4 +1,4 @@
-package models;
+package com.ITReuvenBlog.WebBlog.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
