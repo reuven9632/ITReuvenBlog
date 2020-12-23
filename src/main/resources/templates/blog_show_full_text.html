@@ -1,13 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="author" content="Reuven S, ITReuven">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!--icon steel not working-->
-    <link rel="apple-touch-icon" href="images/icon.png" sizes="180x180">
-    <title th:text="${titlee}" />
-</head>
+<head th:insert="blocks/head :: head"></head>
 <body>
 <div th:insert="blocks/header :: header"></div>
 
@@ -16,9 +9,9 @@
     <div th:each="el : ${post}" class="alert alert-info mt-3 mb-1">
         <h3 th:text="${el.title}"/>
         <p th:text="${el.full_text}"/>
-        <p>sp</p>
-        <a th:href="'/blog/' + ${el.id}" class="btn btn-success">edit</a>
-        <a th:href="'/blog/' + ${el.id}" class="btn btn-warning ">delete</a>
+        <p>Views : <span th:text="${el.views}"/></p>
+        <a th:href="'/blog/' + ${el.id} + '/edit'" class="btn btn-success">edit</a>
+        <a th:href="'/blog/' + ${el.id} + '/delete'" class="btn btn-warning ">delete</a>
     </div>
 </div>
 

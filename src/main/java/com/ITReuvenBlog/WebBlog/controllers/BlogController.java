@@ -23,11 +23,13 @@ public class BlogController {
     public String BlogMain(Model model){
         Iterable<Post> posts = postRepository.findAll();
         model.addAttribute("posts", posts);
+        model.addAttribute("title", "ITReuvenBlog");
         return "blog";
     }
 
     @GetMapping("/blog/add")
     public String BlogAdd(Model model){
+        model.addAttribute("title", "add blog");
         return "blog_add";
     }
 
@@ -47,7 +49,21 @@ public class BlogController {
         ArrayList<Post> post = new ArrayList<>();
         optionalPost.ifPresent(post::add);
         model.addAttribute("post", post);
+        model.addAttribute("title", "blog fullText");
         return "blog_show_full_text";
+    }
+
+    @GetMapping("/blog/{id}/edit")
+    public String BlogEdit(@PathVariable(value = "id") long id, Model model) {
+        if(!postRepository.existsById(id)){
+            return "redirect:/blog";
+        }
+        Optional<Post> optionalPost = postRepository.findById(id);
+        ArrayList<Post> post = new ArrayList<>();
+        optionalPost.ifPresent(post::add);
+        model.addAttribute("post", post);
+        model.addAttribute("title", "edit blog");
+        return "blog_edit";
     }
 
 }

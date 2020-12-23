@@ -1,13 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="author" content="Reuven S, ITReuven">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!--icon steel not working-->
-    <link rel="apple-touch-icon" href="images/icon.png" sizes="180x180">
-    <title th:text="${titlee}" />
-</head>
+<head th:insert="blocks/head :: head"></head>
 <body>
     <div th:insert="blocks/header :: header"></div>
 
