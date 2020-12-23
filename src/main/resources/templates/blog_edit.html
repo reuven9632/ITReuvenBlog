@@ -1,18 +1,20 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:insert="blocks/head :: head"></head>
+<head th:insert="blocks/head :: head">
+</head>
 <body>
 <div th:insert="blocks/header :: header"></div>
 
 <div class="container mt-5">
-    <h1 class="mt-5">add ITReuvenBlog</h1>
-    <form action="/blog/add" method="post">
-        <input type="text" name="title" placeholder="Enter title of blog" class="form-control mb-2">
-        <input type="text" name="anons" placeholder="Enter anons" class="form-control mb-2">
-        <input type="text" name="full_text" placeholder="Heare full text-blog" class="form-control mb-2">
-        <button type="submit" class="btn btn-success mb-4">Add blog</button>
-    </form>
-
+    <h1 class="mt-5">edit ITReuvenBlog</h1>
+    <div th:each="el : ${post}">
+        <form method="post">
+            <input type="text" th:value="${el.title}" name="title" placeholder="Enter title of blog" class="form-control mb-2">
+            <input type="text" th:value="${el.anons}" name="anons" placeholder="Enter anons" class="form-control mb-2">
+            <textarea type="text" th:text="${el.full_text}" name="full_text" placeholder="Here full text-blog" class="form-control mb-2"/>
+            <button type="submit" class="btn btn-success mb-4">update blog</button>
+        </form>
+    </div>
 
 </div>
 

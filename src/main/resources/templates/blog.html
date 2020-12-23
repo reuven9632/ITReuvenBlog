@@ -9,7 +9,7 @@
         <div th:each="el : ${posts}" class="alert alert-info mt-3 mb-1">
             <h3 th:text="${el.title}"></h3>
             <p th:text="${el.anons}"></p>
-            <a th:href="'/blog/' + ${el.id}" class="btn btn-warning btn-outline-primary">See full text</a>
+            <a th:href="'/blog/' + ${el.id}" class="btn btn-warning btn-outline-primary">Show full text</a>
         </div>
     </div>
 
