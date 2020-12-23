@@ -2,22 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="author" content="Reuven S, ITReuven">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!--icon steel not working-->
+    <link rel="apple-touch-icon" href="images/icon.png" sizes="180x180">
     <title th:text="${titlee}" />
 </head>
 <body>
-<div th:insert="blocks/header :: header"></div>
+    <div th:insert="blocks/header :: header"></div>
 
-<div class="container mt-5">
-    <h1 class="mt-5">ITReuvenBlog</h1>
-    <div th:each="el : ${posts}" class="alert alert-info mt-3 mb-1">
-        <h3 th:text="${el.title}"></h3>
-        <p th:text="${el.anons}"></p>
-        <a th:href="'/blog/' + ${el.id}">See full text</a>
+    <div class="container mt-5">
+        <h1 class="mt-5">ITReuvenBlog</h1>
+        <div th:each="el : ${posts}" class="alert alert-info mt-3 mb-1">
+            <h3 th:text="${el.title}"></h3>
+            <p th:text="${el.anons}"></p>
+            <a th:href="'/blog/' + ${el.id}" class="btn btn-warning btn-outline-primary">See full text</a>
+        </div>
     </div>
-</div>
 
-<div th:insert="blocks/footer :: footer"></div>
+    <div th:insert="blocks/footer :: footer"></div>
 </body>
 </html>
 

@@ -11,16 +11,15 @@
 <body>
 <div th:insert="blocks/header :: header"></div>
 
-<div class="container mt-5">
-    <h1 class="mt-5">add ITReuvenBlog</h1>
-    <form action="/blog/add" method="post">
-        <input type="text" name="title" placeholder="Enter title of blog" class="form-control mb-2">
-        <input type="text" name="anons" placeholder="Enter anons" class="form-control mb-2">
-        <input type="text" name="full_text" placeholder="Heare full text-blog" class="form-control mb-2">
-        <button type="submit" class="btn btn-success mb-4">Add blog</button>
-    </form>
-
-
+<div class="container mt-15">
+    <h1 class="mt-5">ITReuvenBlog</h1>
+    <div th:each="el : ${post}" class="alert alert-info mt-3 mb-1">
+        <h3 th:text="${el.title}"/>
+        <p th:text="${el.full_text}"/>
+        <p>sp</p>
+        <a th:href="'/blog/' + ${el.id}" class="btn btn-success">edit</a>
+        <a th:href="'/blog/' + ${el.id}" class="btn btn-warning ">delete</a>
+    </div>
 </div>
 
 <div th:insert="blocks/footer :: footer"></div>

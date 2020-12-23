@@ -14,6 +14,9 @@ public class Post {
 
     private String title;
     private String anons;
+    private String full_text;
+    private int views;
+
 
     public Post(String title, String anons, String full_text) {
         this.title = title;
@@ -24,8 +27,6 @@ public class Post {
     public Post() {
     }
 
-    private String full_text;
-    private int views;
 
     public Long getId() {
         return id;
