@@ -9,7 +9,7 @@
     <div th:each="el : ${post}" class="alert alert-info mt-3 mb-1">
         <h3 th:text="${el.title}"/>
         <p th:text="${el.full_text}"/>
-        <p>Views : <span th:text="${el.views}"/></p>
+        <p>Views : <span th:text="${el.views}"></span></p>
         <a th:href="'/blog/' + ${el.id} + '/edit'" class="btn btn-success">edit</a>
         <a th:href="'/blog/' + ${el.id} + '/delete'" class="btn btn-warning ">delete</a>
     </div>

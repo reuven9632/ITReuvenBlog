@@ -45,9 +45,13 @@ public class BlogController {
         if(!postRepository.existsById(id)){
             return "redirect:/blog";
         }
-        Optional<Post> optionalPost = postRepository.findById(id);
+        Post post = postRepository.findById(id).orElseThrow();
+        post.setViews(post.getViews() + 1);
+        postRepository.save(post);
+        /*Optional<Post> optionalPost = postRepository.findById(id);
         ArrayList<Post> post = new ArrayList<>();
-        optionalPost.ifPresent(post::add);
+        optionalPost.ifPresent(post::add);*/
+
         model.addAttribute("post", post);
         model.addAttribute("title", "blog fullText");
         return "blog_show_full_text";
@@ -58,9 +62,12 @@ public class BlogController {
         if(!postRepository.existsById(id)){
             return "redirect:/blog";
         }
-        Optional<Post> optionalPost = postRepository.findById(id);
+        Post post = postRepository.findById(id).orElseThrow();
+
+        /*Optional<Post> optionalPost = postRepository.findById(id);
         ArrayList<Post> post = new ArrayList<>();
-        optionalPost.ifPresent(post::add);
+        optionalPost.ifPresent(post::add);*/
+
         model.addAttribute("post", post);
         model.addAttribute("title", "edit blog");
         return "blog_edit";
