@@ -11,13 +11,15 @@
 <div th:if="${param.logout}" class="container alert alert-info">
     You have been logged out.
 </div>
+<div th:if="${message}" th:text="${message}" class="container alert alert-info">
+
+</div>
 <div class="container mt-5">
-    <h1 class="mt-5">LogIn</h1>
+    <h1 class="mt-5">Registration</h1>
     <form th:action="@{/login}" method="post">
         <label> User Name : </label><input type="text" name="username" class="form-control alert alert-info mb-2"/>
         <label> Password: </label><input type="password" name="password" class="form-control alert alert-info mb-2"/>
         <button type="submit" class="btn btn-success mb-4">Sign In</button>
-        <a href="/registration">Registration</a>
     </form>
 </div>
 <div th:insert="blocks/footer :: footer"></div>
