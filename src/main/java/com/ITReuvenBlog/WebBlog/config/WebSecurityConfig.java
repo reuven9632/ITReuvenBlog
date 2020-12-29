@@ -38,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .permitAll();
     }
 
-    @Bean
+    /*@Bean
     @Override
     public UserDetailsService userDetailsService() {
         UserDetails user =
@@ -49,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .build();
 
         return new InMemoryUserDetailsManager(user);
-    }
+    }*/
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
