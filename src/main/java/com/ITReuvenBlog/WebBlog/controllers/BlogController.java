@@ -1,7 +1,9 @@
 package com.ITReuvenBlog.WebBlog.controllers;
 
 import com.ITReuvenBlog.WebBlog.models.Post;
+import com.ITReuvenBlog.WebBlog.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,8 +36,12 @@ public class BlogController {
     }
 
     @PostMapping("/blog/add")
-    public String BlogPostAdd(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model){
-        Post post = new Post(title, anons, full_text);
+    public String BlogPostAdd(
+            @AuthenticationPrincipal User user,
+            @RequestParam String title,
+            @RequestParam String anons,
+            @RequestParam String full_text, Model model){
+        Post post = new Post(title, anons, full_text, user);
         postRepository.save(post);
         return "redirect:/blog";
     }

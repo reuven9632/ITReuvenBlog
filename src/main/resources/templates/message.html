@@ -19,8 +19,8 @@
         <h3 th:text="${el.id}"></h3>
         <h3 th:text="${el.text}"></h3>
         <p th:text="${el.tag}"></p>
-        <a th:href="'/blog/' + ${el.id}" class="btn btn-warning btn-outline-primary">Show full text</a>
-        <a th:href="'/blog/' + ${el.id} + '/delete'" class="btn btn-warning ">delete</a>
+        <a th:href="'/message/' + ${el.id} + '/delete'" class="btn btn-warning ">delete</a>
+        <b><h3 th:text="${error}"></h3></b>
     </div>
 </div>
 
