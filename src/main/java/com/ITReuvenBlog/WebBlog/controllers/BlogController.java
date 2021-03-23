@@ -100,4 +100,5 @@ public class BlogController {
         model.addAttribute("title", "edit blog");
         return "redirect:/blog";
     }
+
 }

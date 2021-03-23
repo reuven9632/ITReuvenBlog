@@ -2,25 +2,28 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:insert="blocks/head :: head"></head>
-<body>
-<div th:insert="blocks/header :: header"></div>
 
-<div th:if="${param.error}">
-    Invalid username and password.
-</div>
-<div th:if="${param.logout}" class="container alert alert-info">
-    You have been logged out.
-</div>
-<div class="container mt-5">
-    <h1 class="mt-5">LogIn</h1>
-    <form th:action="@{/login}" method="post">
-        <label> User Name : </label><input type="text" name="username" class="form-control alert alert-info mb-2"/>
-        <label> Password: </label><input type="password" name="password" class="form-control alert alert-info mb-2"/>
-        <button type="submit" class="btn btn-success mb-4">Sign In</button>
-    </form>
-    <a href="/registration" class="ml-5">Registration</a>
-</div>
-<div th:insert="blocks/footer :: footer"></div>
+<body>
+    <div th:insert="blocks/header :: header"></div>
+
+    <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}" class="container alert alert-info">
+        You have been logged out.
+    </div>
+    <div class="container mt-5">
+        <h1 class="mt-5">LogIn</h1>
+        <form th:action="@{/login}" method="post">
+            <label> User Name : </label><input type="text" name="username" class="form-control alert alert-info mb-2"/>
+            <label> Password: </label><input type="password" name="password" class="form-control alert alert-info mb-2"/>
+            <button type="submit" class="btn btn-success mb-4">Sign In</button>
+        </form>
+        <a href="/registration" class="ml-5">Registration</a>
+    </div>
+    <div th:insert="blocks/footer :: footer"></div>
+
+    <div th:insert="blocks/bootstrapScript :: bootstrapScript"></div>
 </body>
 </html>
 

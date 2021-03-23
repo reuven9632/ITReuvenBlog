@@ -12,8 +12,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    /*@Autowired
-    private DataSource dataSource;*/
+
     @Autowired
     private UserService userService;
 
@@ -21,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/registration").permitAll()
+                    .antMatchers("/", "/registration", "/css/**", "/images/**", "/js/**").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
@@ -32,25 +31,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .permitAll();
     }
 
-    /*@Bean
-    @Override
-    public UserDetailsService userDetailsService() {
-        UserDetails user =
-                User.withDefaultPasswordEncoder()
-                        .username("q")
-                        .password("1")
-                        .roles("USER")
-                        .build();
-
-        return new InMemoryUserDetailsManager(user);
-    }*/
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService)/*jdbcAuthentication()
-                .dataSource(dataSource)*/
+        auth.userDetailsService(userService)               /*             his options located on: service/UserService
+                                                            and need @Autowired   private UserService userService;    */
                 .passwordEncoder(NoOpPasswordEncoder.getInstance());
-                /*.usersByUsernameQuery("select username, password, active from usr where username=?")
-                .authoritiesByUsernameQuery("select u.username, ur.roles from usr u inner join user_role ur on u.id = ur.user_id where u.username=?");*/
     }
+
 }

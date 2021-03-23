@@ -49,7 +49,7 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public Boolean getActive() {
+    public Boolean isActive() {
         return active;
     }
 
@@ -82,7 +82,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return active;                  //?????????????    isActive()   ?????????
+        return isActive();
     }
 
     @Override

@@ -10,12 +10,13 @@
             <h3 th:text="${el.title}"></h3>
             <p th:text="${el.anons}"></p>
             <p>Author:  <span th:text="${el.authorName}"></span></p>
-                <a th:href="'/blog/' + ${el.id}" class="btn btn-warning btn-outline-primary">Show full text</a>
-                <a th:href="'/blog/' + ${el.id} + '/delete'" class="btn btn-warning ">delete</a>
+            <a th:href="'/blog/' + ${el.id}" class="btn btn-warning btn-outline-primary">Show full text</a>
+            <a th:href="'/blog/' + ${el.id} + '/delete'" class="btn btn-warning ">delete</a>
         </div>
     </div>
 
     <div th:insert="blocks/footer :: footer"></div>
+    <div th:insert="blocks/bootstrapScript :: bootstrapScript"></div>
 </body>
 </html>
 
