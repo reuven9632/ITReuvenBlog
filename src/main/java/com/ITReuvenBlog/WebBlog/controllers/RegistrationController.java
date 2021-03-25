@@ -35,6 +35,7 @@ public class RegistrationController {
         user.setRoles(Collections.singleton(Role.USER));
         userRepository.save(user);
 
+        /*   --------------------------*/
         /*User user = userRepository.findByUsername(username);
 
         if (user != null){
