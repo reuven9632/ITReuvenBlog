@@ -3,6 +3,7 @@ package com.ITReuvenBlog.WebBlog.controllers;
 import com.ITReuvenBlog.WebBlog.models.Role;
 import com.ITReuvenBlog.WebBlog.models.User;
 import com.ITReuvenBlog.WebBlog.repositoryes.UserRepository;
+import com.ITReuvenBlog.WebBlog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +15,11 @@ import java.util.Collections;
 
 @Controller
 public class RegistrationController {
-    @Autowired
-    private UserRepository userRepository;
+    /*@Autowired
+    private UserRepository userRepository;*/
 
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/registration")
     public String registration(Model model){
@@ -25,15 +28,12 @@ public class RegistrationController {
 
     @PostMapping("/registration")
     public String addUser(User user, @RequestParam String username, @RequestParam String password, Model model){
-        User userFromDb = userRepository.findByUsername(user.getUsername());
 
-        if (userFromDb != null){
+        if (!userService.addUser(user)){
             model.addAttribute("message", "user exists");
             return "registration";
         }
-        user.setActive(true);
-        user.setRoles(Collections.singleton(Role.USER));
-        userRepository.save(user);
+
 
         /*   --------------------------*/
         /*User user = userRepository.findByUsername(username);
