@@ -52,12 +52,22 @@ public class BlogController {
             return "redirect:/blog";
         }
 
-        /*Optional<Post> optionalPost = postRepository.findById(id);
+        /*Optional<Post> optionalPost = postRepository.findById(id);            //first option
         ArrayList<Post> post = new ArrayList<>();
-        optionalPost.ifPresent(post::add);*/
+        optionalPost.ifPresent(post::add);
+
+        post.get(0).setViews(post.get(0).getViews() + 1);
+        postRepository.save(post.get(0));*/
+
+
+
+        /*Optional<Post> post = postRepository.findById(id).orElseThrow();     //second option
+        post.get().setViews(post.get().getViews() + 1);*/
+
+
 
         Post post = postRepository.findById(id).orElseThrow();
-        post.setViews(post.getViews() + 1);
+        post.setViews(post.getViews() + 1);                                    //third option
         postRepository.save(post);
 
         model.addAttribute("post", post);

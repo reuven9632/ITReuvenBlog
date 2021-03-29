@@ -27,7 +27,9 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String addUser(User user,/* @RequestParam String username, @RequestParam String password,*/ Model model){
+    public String addUser(User user /*автоматически вносит данные в класс User без @RequestParam и т.д.*/,
+            /* @RequestParam String username, @RequestParam String password,*/ Model model){
+
 
         if (!userService.addUser(user)){
             model.addAttribute("message", "user exists");
